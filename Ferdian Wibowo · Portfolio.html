@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ferdian Wibowo · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F2A3D; --navy-2:#173B54; --teal:#1B5E6B; --mint:#5FB8A8; --mint-l:#A8E3D6;
+  --paper:#F6F8F7; --ink:#1E2A32; --grey:#6B7780; --line:#DCE6E6; --card:#FFFFFF;
+  --sans:'DM Sans',system-ui,sans-serif; --serif:'Montserrat',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* hero */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,#1F5A73 0%,transparent 60%),linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:88px 0 72px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-120px;bottom:-160px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(168,227,214,.25);box-shadow:0 0 0 60px rgba(168,227,214,.05),0 0 0 120px rgba(168,227,214,.03)}
+.eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:12px;color:var(--mint-l);font-weight:600}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(38px,6vw,68px);line-height:1.02;margin:14px 0 10px;letter-spacing:-.01em}
+.hero .role{font-size:19px;color:#D6ECE8;font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.tag{border:1px solid rgba(168,227,214,.45);color:#E6F5F1;padding:6px 14px;border-radius:999px;font-size:13px}
+.contact{margin-top:30px;display:flex;flex-wrap:wrap;gap:22px;font-size:14px;color:#CFE6E1}
+.contact a{color:#CFE6E1}
+
+/* nav */
+nav{position:sticky;top:0;z-index:5;background:rgba(246,248,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:22px;overflow-x:auto;padding-top:14px;padding-bottom:14px;font-size:13px;font-weight:500}
+nav a{color:var(--grey);white-space:nowrap}
+nav a:hover{color:var(--teal);text-decoration:none}
+
+section{padding:72px 0}
+.kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);font-weight:600}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4vw,44px);margin:8px 0 14px;line-height:1.1}
+.lead{color:var(--grey);max-width:720px;margin:0 0 34px}
+
+/* about */
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+.about p{margin:0 0 14px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.stat b{display:block;font-family:var(--serif);font-size:34px;color:var(--teal);line-height:1}
+.stat span{font-size:13px;color:var(--grey)}
+
+/* focus cards */
+.focus{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(15,42,61,.08)}
+.badge{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--mint));color:#fff;display:grid;place-items:center;font-weight:700;margin-bottom:16px}
+.card h3{margin:0 0 8px;font-size:18px}
+.card p{margin:0;color:var(--grey);font-size:14px}
+
+/* timeline */
+.timeline{position:relative;padding-left:30px;margin-top:10px}
+.timeline:before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--mint),var(--teal))}
+.item{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-bottom:18px}
+.item:before{content:"";position:absolute;left:-28px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--mint)}
+.item .when{font-size:12px;color:var(--teal);font-weight:600;letter-spacing:.04em}
+.item h3{margin:4px 0 2px;font-size:18px;font-family:var(--serif);font-weight:600}
+.item .org{color:var(--grey);font-size:14px;margin-bottom:8px}
+.item ul{margin:0;padding-left:18px;font-size:14px}
+.item li{margin-bottom:4px}
+
+/* projects */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.project{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{height:130px;background:linear-gradient(135deg,var(--navy),var(--teal) 60%,var(--mint));position:relative}
+.thumb .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:26px 26px}
+.thumb span{position:absolute;left:18px;bottom:14px;color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.project .body{padding:22px 24px 24px}
+.project h3{margin:0 0 6px;font-size:18px;font-family:var(--serif);font-weight:600}
+.project p{margin:0;color:var(--grey);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{background:#E8F3F2;color:var(--teal);font-size:12px;padding:4px 10px;border-radius:999px;font-weight:500}
+
+/* gis band */
+.gis{background:var(--navy);color:#E9F4F1;border-radius:24px;padding:48px}
+.gis h2{color:#fff}
+.gis .kicker{color:var(--mint-l)}
+.gis .lead{color:#B9D3CE}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{border:1px solid rgba(168,227,214,.25);border-radius:16px;padding:20px}
+.step b{display:block;color:var(--mint-l);font-family:var(--serif);font-size:26px;line-height:1;margin-bottom:10px}
+.step h4{margin:0 0 6px;font-size:15px;color:#fff}
+.step p{margin:0;font-size:13px;color:#B9D3CE}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.tools .chip{background:rgba(168,227,214,.12);color:#D5F1EA}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.skillbox{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.skillbox h3{margin:0 0 12px;font-size:16px;color:var(--teal)}
+.bar{margin-bottom:12px}
+.bar div{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}
+.bar i{display:block;height:7px;border-radius:99px;background:#E4EEEC;overflow:hidden}
+.bar i:after{content:"";display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--teal),var(--mint));border-radius:99px}
+
+/* writing */
+.writing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.wcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;border-top:4px solid var(--mint)}
+.wcard h3{margin:0 0 6px;font-size:16px;font-family:var(--serif);font-weight:600}
+.wcard .org{font-size:13px;color:var(--grey);margin-bottom:10px}
+.wcard p{margin:0;font-size:14px;color:var(--ink)}
+.metric{font-family:var(--serif);font-size:30px;color:var(--teal);margin:8px 0 2px;line-height:1}
+
+/* achievements */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.list{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.list h3{margin:0 0 12px;font-size:16px;color:var(--teal)}
+.list ul{margin:0;padding-left:18px;font-size:14px}
+.list li{margin-bottom:8px}
+
+footer{background:var(--navy);color:#CFE6E1;padding:56px 0;margin-top:20px}
+.deco{display:none}
+.hero .wrap,.hero .eyebrow{position:relative;z-index:1}
+.foot{position:relative;overflow:hidden}
+.foot .deco{opacity:.2;height:96px}
+.foot .wrap{position:relative;z-index:1}
+
+footer h2{color:#fff;font-size:34px;margin-bottom:8px}
+footer p{margin:0 0 6px}
+footer a{color:var(--mint-l)}
+
+@media (max-width:860px){
+  .about,.two{grid-template-columns:1fr}
+  .focus,.writing{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .projects,.skills{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .focus,.writing,.steps{grid-template-columns:1fr}
+  .gis{padding:30px 22px}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<svg class="deco" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true" focusable="false"><rect x="0" y="80" width="68" height="70" fill="#A8E3D6"/><rect x="23" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="51" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="37" y="108" width="6" height="7" fill="#0F2A3D"/><rect x="51" y="108" width="6" height="7" fill="#0F2A3D"/><rect x="23" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="51" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="74" y="70" width="56" height="80" fill="#A8E3D6"/><rect x="111" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="97" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="111" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="83" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="97" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="136" y="16" width="44" height="134" fill="#A8E3D6"/><rect x="159" y="28" width="6" height="7" fill="#0F2A3D"/><rect x="145" y="44" width="6" height="7" fill="#0F2A3D"/><rect x="145" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="159" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="186" y="16" width="44" height="134" fill="#A8E3D6"/><rect x="195" y="28" width="6" height="7" fill="#0F2A3D"/><rect x="195" y="44" width="6" height="7" fill="#0F2A3D"/><rect x="209" y="60" width="6" height="7" fill="#0F2A3D"/><rect x="209" y="76" width="6" height="7" fill="#0F2A3D"/><rect x="195" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="195" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="240" y="70" width="68" height="80" fill="#A8E3D6"/><rect x="291" y="82" width="6" height="7" fill="#0F2A3D"/><rect x="249" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="263" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="291" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="263" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="291" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="318" y="80" width="68" height="70" fill="#A8E3D6"/><rect x="355" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="369" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="327" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="355" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="369" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="396" y="70" width="68" height="80" fill="#A8E3D6"/><rect x="405" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="419" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="433" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="447" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="433" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="447" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="470" y="70" width="84" height="80" fill="#A8E3D6"/><rect x="521" y="82" width="6" height="7" fill="#0F2A3D"/><rect x="479" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="493" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="507" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="521" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="535" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="479" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="493" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="507" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="521" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="479" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="521" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="535" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="564" y="38" width="68" height="112" fill="#A8E3D6"/><rect x="573" y="50" width="6" height="7" fill="#0F2A3D"/><rect x="587" y="66" width="6" height="7" fill="#0F2A3D"/><rect x="601" y="66" width="6" height="7" fill="#0F2A3D"/><rect x="615" y="66" width="6" height="7" fill="#0F2A3D"/><rect x="573" y="82" width="6" height="7" fill="#0F2A3D"/><rect x="601" y="82" width="6" height="7" fill="#0F2A3D"/><rect x="615" y="82" width="6" height="7" fill="#0F2A3D"/><rect x="601" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="573" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="587" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="615" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="638" y="70" width="68" height="80" fill="#A8E3D6"/><rect x="647" y="82" width="6" height="7" fill="#0F2A3D"/><rect x="689" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="675" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="689" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="647" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="661" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="716" y="58" width="68" height="92" fill="#A8E3D6"/><rect x="725" y="70" width="6" height="7" fill="#0F2A3D"/><rect x="739" y="70" width="6" height="7" fill="#0F2A3D"/><rect x="767" y="70" width="6" height="7" fill="#0F2A3D"/><rect x="767" y="86" width="6" height="7" fill="#0F2A3D"/><rect x="739" y="102" width="6" height="7" fill="#0F2A3D"/><rect x="725" y="118" width="6" height="7" fill="#0F2A3D"/><rect x="767" y="118" width="6" height="7" fill="#0F2A3D"/><rect x="767" y="134" width="6" height="7" fill="#0F2A3D"/><rect x="794" y="38" width="84" height="112" fill="#A8E3D6"/><rect x="817" y="50" width="6" height="7" fill="#0F2A3D"/><rect x="831" y="50" width="6" height="7" fill="#0F2A3D"/><rect x="859" y="50" width="6" height="7" fill="#0F2A3D"/><rect x="831" y="82" width="6" height="7" fill="#0F2A3D"/><rect x="859" y="82" width="6" height="7" fill="#0F2A3D"/><rect x="831" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="859" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="817" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="845" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="859" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="831" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="884" y="38" width="68" height="112" fill="#A8E3D6"/><rect x="907" y="66" width="6" height="7" fill="#0F2A3D"/><rect x="921" y="66" width="6" height="7" fill="#0F2A3D"/><rect x="893" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="907" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="935" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="893" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="921" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="935" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="958" y="16" width="44" height="134" fill="#A8E3D6"/><rect x="981" y="28" width="6" height="7" fill="#0F2A3D"/><rect x="981" y="44" width="6" height="7" fill="#0F2A3D"/><rect x="967" y="60" width="6" height="7" fill="#0F2A3D"/><rect x="981" y="76" width="6" height="7" fill="#0F2A3D"/><rect x="967" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="967" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="1012" y="38" width="56" height="112" fill="#A8E3D6"/><rect x="1021" y="50" width="6" height="7" fill="#0F2A3D"/><rect x="1035" y="50" width="6" height="7" fill="#0F2A3D"/><rect x="1021" y="66" width="6" height="7" fill="#0F2A3D"/><rect x="1035" y="66" width="6" height="7" fill="#0F2A3D"/><rect x="1049" y="66" width="6" height="7" fill="#0F2A3D"/><rect x="1021" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="1021" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="1021" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="1078" y="70" width="56" height="80" fill="#A8E3D6"/><rect x="1101" y="82" width="6" height="7" fill="#0F2A3D"/><rect x="1101" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="1115" y="98" width="6" height="7" fill="#0F2A3D"/><rect x="1087" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="1115" y="114" width="6" height="7" fill="#0F2A3D"/><rect x="1115" y="130" width="6" height="7" fill="#0F2A3D"/><rect x="1144" y="16" width="68" height="134" fill="#A8E3D6"/><rect x="1167" y="28" width="6" height="7" fill="#0F2A3D"/><rect x="1195" y="28" width="6" height="7" fill="#0F2A3D"/><rect x="1167" y="44" width="6" height="7" fill="#0F2A3D"/><rect x="1181" y="44" width="6" height="7" fill="#0F2A3D"/><rect x="1153" y="60" width="6" height="7" fill="#0F2A3D"/><rect x="1181" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="1195" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="1167" y="108" width="6" height="7" fill="#0F2A3D"/><rect x="1195" y="108" width="6" height="7" fill="#0F2A3D"/><rect x="1153" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="1167" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="1181" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="1218" y="58" width="44" height="92" fill="#A8E3D6"/><rect x="1227" y="86" width="6" height="7" fill="#0F2A3D"/><rect x="1241" y="102" width="6" height="7" fill="#0F2A3D"/><rect x="1227" y="118" width="6" height="7" fill="#0F2A3D"/><rect x="1227" y="134" width="6" height="7" fill="#0F2A3D"/><rect x="1241" y="134" width="6" height="7" fill="#0F2A3D"/><rect x="1268" y="100" width="68" height="50" fill="#A8E3D6"/><rect x="1277" y="112" width="6" height="7" fill="#0F2A3D"/><rect x="1277" y="128" width="6" height="7" fill="#0F2A3D"/><rect x="1319" y="128" width="6" height="7" fill="#0F2A3D"/><rect x="1342" y="100" width="68" height="50" fill="#A8E3D6"/><rect x="1351" y="112" width="6" height="7" fill="#0F2A3D"/><rect x="1393" y="112" width="6" height="7" fill="#0F2A3D"/><rect x="1379" y="128" width="6" height="7" fill="#0F2A3D"/><rect x="1420" y="16" width="84" height="134" fill="#A8E3D6"/><rect x="1429" y="44" width="6" height="7" fill="#0F2A3D"/><rect x="1429" y="60" width="6" height="7" fill="#0F2A3D"/><rect x="1443" y="60" width="6" height="7" fill="#0F2A3D"/><rect x="1457" y="60" width="6" height="7" fill="#0F2A3D"/><rect x="1471" y="60" width="6" height="7" fill="#0F2A3D"/><rect x="1429" y="76" width="6" height="7" fill="#0F2A3D"/><rect x="1443" y="76" width="6" height="7" fill="#0F2A3D"/><rect x="1457" y="76" width="6" height="7" fill="#0F2A3D"/><rect x="1443" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="1457" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="1471" y="92" width="6" height="7" fill="#0F2A3D"/><rect x="1429" y="108" width="6" height="7" fill="#0F2A3D"/><rect x="1457" y="108" width="6" height="7" fill="#0F2A3D"/><rect x="1443" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="1471" y="124" width="6" height="7" fill="#0F2A3D"/><rect x="68" y="116" width="4" height="34" fill="#A8E3D6"/><circle cx="70" cy="106" r="20" fill="#A8E3D6"/><rect x="298" y="116" width="4" height="34" fill="#A8E3D6"/><circle cx="300" cy="106" r="20" fill="#A8E3D6"/><rect x="638" y="116" width="4" height="34" fill="#A8E3D6"/><circle cx="640" cy="106" r="20" fill="#A8E3D6"/><rect x="978" y="116" width="4" height="34" fill="#A8E3D6"/><circle cx="980" cy="106" r="20" fill="#A8E3D6"/><rect x="1208" y="116" width="4" height="34" fill="#A8E3D6"/><circle cx="1210" cy="106" r="20" fill="#A8E3D6"/><rect x="1398" y="116" width="4" height="34" fill="#A8E3D6"/><circle cx="1400" cy="106" r="20" fill="#A8E3D6"/></svg>
+  <div class="wrap">
+    <div class="eyebrow">Portfolio · 2020 – 2026</div>
+    <h1>Ferdian Wibowo</h1>
+    <div class="role">Urban and Regional Planner · Smart City · GIS</div>
+    <div class="tags">
+      <span class="tag">Urban Planning</span>
+      <span class="tag">Smart City Masterplanning</span>
+      <span class="tag">GIS Analysis</span>
+      <span class="tag">Feasibility Studies</span>
+      <span class="tag">Policy Writing</span>
+    </div>
+    <div class="contact">
+      <a href="mailto:ferdi.planning24@gmail.com">ferdi.planning24@gmail.com</a>
+      <span>+62 85182526992</span>
+      <a href="https://www.linkedin.com/in/ferdianwibowo/">linkedin.com/in/ferdianwibowo</a>
+      <span>Madiun, East Java</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#about">About</a>
+    <a href="#focus">Focus</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#gis">GIS</a>
+    <a href="#skills">Skills</a>
+    <a href="#writing">Writing</a>
+    <a href="#research">Research</a>
+    <a href="#recognition">Recognition</a>
+  </div>
+</nav>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="kicker">About</div>
+      <h2>Planning cities with data, and explaining them clearly.</h2>
+      <p>I am an urban and regional planner from Institut Teknologi Sepuluh Nopember (ITS), with a GPA of 3.66 out of 4.00. Over the past two years I have worked on smart city masterplans, settlement and spatial planning, and investment feasibility studies for local governments in Indonesia.</p>
+      <p>I work across the full cycle of a planning document: collecting and mapping spatial data, analysing it, drafting the report, and presenting it to government stakeholders. I also write regularly, from news and editorial pieces to content for planning audiences.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>2+</b><span>years in planning consultancy</span></div>
+      <div class="stat"><b>4</b><span>regional assets assessed in a pre-feasibility study</span></div>
+      <div class="stat"><b>4</b><span>smart city masterplans contributed to</span></div>
+      <div class="stat"><b style="font-size:27px;white-space:nowrap">100–500 m</b><span>radius-based demand analysis</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="focus" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Focus areas</div>
+    <h2>Where I work</h2>
+    <p class="lead">Three areas run through almost all of my projects, from masterplans to field mapping.</p>
+    <div class="focus">
+      <div class="card"><div class="badge">01</div><h3>Urban Planning</h3><p>Settlement plans (RKP, RP3KP), detailed spatial plans (RDTR), land analysis, and planning documents for regencies and cities.</p></div>
+      <div class="card"><div class="badge">02</div><h3>Smart City</h3><p>Masterplans, smart city readiness and innovation mapping, digital government (Pemdi) policy, and technical guidelines.</p></div>
+      <div class="card"><div class="badge">03</div><h3>GIS</h3><p>Digitizing road networks, thematic and zoning maps, network-based demand analysis, and spatial overlays for planning decisions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Experience</div>
+    <h2>Work history</h2>
+    <p class="lead">Roles across consulting, government-linked planning work, and laboratory research.</p>
+    <div class="timeline">
+      <div class="item">
+        <div class="when">FEB 2026 – PRESENT</div>
+        <h3>Associate Consultant</h3>
+        <div class="org">Citiasia, Inc.</div>
+        <ul>
+          <li>Analyst for the Bogor Regency Smart City Masterplan 2025–2029.</li>
+          <li>Smart city readiness analysis, innovation mapping, and SWOT and TOWS strategy formulation.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="when">FEB 2025 – FEB 2026</div>
+        <h3>Junior Analyst</h3>
+        <div class="org">Citiasia, Inc.</div>
+        <ul>
+          <li>Key consultant for Books I–IV of the Bogor Regency Smart City Masterplan.</li>
+          <li>Technical assistance on smart city implementation to Magetan Regency, Bogor Regency, and Blitar City.</li>
+          <li>Policy brief synchronizing the Digital Government (Pemdi) programme with smart city implementation.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="when">AUG 2024 – DEC 2025</div>
+        <h3>Urban and Regional Planning Expert (Individual Consultant)</h3>
+        <div class="org">In collaboration with ITS</div>
+        <ul>
+          <li>Maps and data analysis for the Madiun City Settlement Area Plan (RKP, 2024) and the Madiun City RP3KP (2024).</li>
+          <li>Pre-Feasibility Study for the I-PRO investment projects in Madiun Regency, assessing four regional assets across legal, technical, market, socio-economic, environmental, and financial aspects.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="when">AUG 2024 – FEB 2025</div>
+        <h3>Junior Analyst Intern</h3>
+        <div class="org">Citiasia, Inc.</div>
+        <ul>
+          <li>Smart City Masterplan documents for East Belitung, Belitung, and Purbalingga Regencies.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="when">FEB 2023 – JUL 2023</div>
+        <h3>RDTR Drafting Team Member</h3>
+        <div class="org">Dinas PUPR Kabupaten Magetan · INSPIRING Kampus Merdeka Internship</div>
+        <ul>
+          <li>Contributed to RDTR contents: academic paper, zoning regulation, spatial pattern and structure plans, and RDTR maps.</li>
+          <li>Demographic, socio-economic, and territorial analysis for the Karangrejo Subdistrict RDTR.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="when">2021 – 2023</div>
+        <h3>Field Surveyor and GIS Operator</h3>
+        <div class="org">Institut Teknologi Sepuluh Nopember · lecturer projects with local government agencies</div>
+        <ul>
+          <li>Spatial mapping of village assets in forest-zone areas for Magetan Regency (PPTPKH).</li>
+          <li>Interviews, FGDs, and location surveys; collection of primary and secondary data.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="when">SEP 2022 – SEP 2023</div>
+        <h3>Laboratory Assistant</h3>
+        <div class="org">Regional, Coastal, and Environmental Development Laboratory, ITS</div>
+        <ul>
+          <li>Supported lecturers in project, research, and community engagement activities.</li>
+          <li>Assisted with technical and administrative work and teaching activities.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Selected projects</div>
+    <h2>Planning documents and spatial work</h2>
+    <p class="lead">A selection of masterplans, plans, and studies I contributed to.</p>
+    <div class="projects">
+      <article class="project">
+        <div class="thumb"><div class="grid"></div><span>Smart City Masterplan</span></div>
+        <div class="body">
+          <h3>Bogor Regency Smart City Masterplan 2025–2029</h3>
+          <p>Key consultant for Books I–IV: strategic analysis, readiness, gap analysis, SWOT and TOWS, action plan, roadmap, quick wins, and risk management.</p>
+          <div class="chips"><span class="chip">Readiness</span><span class="chip">Roadmap</span><span class="chip">Risk</span><span class="chip">ISO 37122</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb"><div class="grid"></div><span>Smart City Masterplan</span></div>
+        <div class="body">
+          <h3>East Belitung Smart City Masterplan</h3>
+          <p>Contributed to preparation of the smart city masterplan document for East Belitung Regency.</p>
+          <div class="chips"><span class="chip">Masterplan</span><span class="chip">Local Government</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb"><div class="grid"></div><span>Smart City Masterplan</span></div>
+        <div class="body">
+          <h3>Belitung Smart City Masterplan</h3>
+          <p>Contributed to preparation of the smart city masterplan document for Belitung Regency.</p>
+          <div class="chips"><span class="chip">Masterplan</span><span class="chip">Local Government</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb"><div class="grid"></div><span>Smart City Masterplan</span></div>
+        <div class="body">
+          <h3>Purbalingga Smart City Masterplan</h3>
+          <p>Contributed to preparation of the smart city masterplan document for Purbalingga Regency.</p>
+          <div class="chips"><span class="chip">Masterplan</span><span class="chip">Local Government</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb"><div class="grid"></div><span>Settlement Planning</span></div>
+        <div class="body">
+          <h3>Madiun City Settlement Area Plan (Rencana Kawasan Permukiman, RKP), 2024</h3>
+          <p>Base and thematic maps for settlement distribution, land analysis, infrastructure networks, and areas that need policy intervention.</p>
+          <div class="chips"><span class="chip">RKP</span><span class="chip">Thematic Maps</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb"><div class="grid"></div><span>Settlement Planning</span></div>
+        <div class="body">
+          <h3>Madiun City Housing and Settlement Development Plan (Rencana Pembangunan dan Pengembangan Perumahan dan Permukiman, RP3KP), 2024</h3>
+          <p>Maps and data analysis for the Madiun City RP3KP.</p>
+          <div class="chips"><span class="chip">RP3KP</span><span class="chip">Maps</span><span class="chip">Data Analysis</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb"><div class="grid"></div><span>Investment Feasibility</span></div>
+        <div class="body">
+          <h3>I-PRO Pre-Feasibility Study, Madiun Regency</h3>
+          <p>Multi-aspect assessment of four regional assets, including NPV, IRR, and payback period, with recommended uses for each asset.</p>
+          <div class="chips"><span class="chip">NPV</span><span class="chip">IRR</span><span class="chip">Payback</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb"><div class="grid"></div><span>Digital Governance</span></div>
+        <div class="body">
+          <h3>Pemdi and Smart City Policy Brief, Magetan</h3>
+          <p>Policy brief synchronizing the Digital Government (Pemdi) programme of the Ministry with smart city implementation in Magetan Regency.</p>
+          <div class="chips"><span class="chip">Policy</span><span class="chip">Pemdi</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb"><div class="grid"></div><span>Geospatial Data</span></div>
+        <div class="body">
+          <h3>Geospatial Data Management for East Java Development Planning (2022)</h3>
+          <p>Tenaga surveyor for data collection on regional development planning (RKG and RKP for regencies and cities, 2020–2022), within the Pembinaan Manajemen Data Geospasial dalam Mendukung Satu Data Indonesia activity in East Java.</p>
+          <div class="chips"><span class="chip">Geospatial Data</span><span class="chip">Satu Data Indonesia</span><span class="chip">East Java</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="thumb"><div class="grid"></div><span>Field Survey</span></div>
+        <div class="body">
+          <h3>Umbulan Spring Discharge Study, Pasuruan (2023)</h3>
+          <p>Survey team supporting data requests, interviews, and field surveys for a study on how land cover and socio-economic conditions affect the discharge of the Umbulan spring, covering Pasuruan, Malang, Probolinggo, and Kota Pasuruan.</p>
+          <div class="chips"><span class="chip">Field Survey</span><span class="chip">Hydrology</span><span class="chip">Land Cover</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="gis" style="padding-top:0">
+  <div class="wrap">
+    <div class="gis">
+      <div class="kicker">GIS and spatial analysis</div>
+      <h2>From raw layers to planning decisions</h2>
+      <p class="lead">How I approach spatial data in a transport or planning study.</p>
+      <div class="steps">
+        <div class="step"><b>01</b><h4>Digitize the network</h4><p>Road network classified by hierarchy, from primary collectors to local streets.</p></div>
+        <div class="step"><b>02</b><h4>Map destinations</h4><p>Government offices, schools and campuses, markets, terminals, health facilities, and public spaces.</p></div>
+        <div class="step"><b>03</b><h4>Model demand</h4><p>Residential shapefiles analysed with network analysis at 100, 200, 300, and 500 m radii.</p></div>
+        <div class="step"><b>04</b><h4>Visualise and explain</h4><p>Density surfaces for trip generation and attraction, read alongside policy and fiscal context.</p></div>
+      </div>
+      <div class="tools">
+        <span class="chip">QGIS (Advanced)</span>
+        <span class="chip">ArcGIS / ArcMap (Advanced)</span>
+        <span class="chip">Spatial joins and proximity</span>
+        <span class="chip">Catchment analysis</span>
+        <span class="chip">Thematic and zoning maps</span>
+        <span class="chip">Satu Data Indonesia geospatial data</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Skills</div>
+    <h2>Tools and proficiency</h2>
+    <p class="lead">Self-assessed proficiency, based on the projects above.</p>
+    <div class="skills">
+      <div class="skillbox">
+        <h3>GIS and Mapping</h3>
+        <div class="bar"><div><span>QGIS</span><span>Advanced</span></div><i style="--w:88%"></i></div>
+        <div class="bar"><div><span>ArcGIS / ArcMap</span><span>Advanced</span></div><i style="--w:88%"></i></div>
+        <div class="bar"><div><span>Spatial analysis and network analysis</span><span>Working</span></div><i style="--w:75%"></i></div>
+      </div>
+      <div class="skillbox">
+        <h3>Analysis and Modelling</h3>
+        <div class="bar"><div><span>SPSS</span><span>Intermediate</span></div><i style="--w:65%"></i></div>
+        <div class="bar"><div><span>FRONTIER 4.1 (stochastic frontier)</span><span>Basic</span></div><i style="--w:40%"></i></div>
+        <div class="bar"><div><span>Investment pre-feasibility study (NPV, IRR, payback period)</span><span>Working</span></div><i style="--w:75%"></i></div>
+      </div>
+      <div class="skillbox">
+        <h3>Research and Fieldwork</h3>
+        <div class="bar"><div><span>NVivo</span><span>Intermediate</span></div><i style="--w:65%"></i></div>
+        <div class="bar"><div><span>Surveys, interviews, and FGD facilitation</span><span>Working</span></div><i style="--w:80%"></i></div>
+      </div>
+      <div class="skillbox">
+        <h3>Office and Data Tools</h3>
+        <div class="bar"><div><span>Microsoft Excel, Word, PowerPoint</span><span>Advanced</span></div><i style="--w:90%"></i></div>
+        <div class="bar"><div><span>SAP Analytics Cloud and SAP Build Apps</span><span>Trained</span></div><i style="--w:55%"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Writing and communication</div>
+    <h2>Stories for public audiences</h2>
+    <p class="lead">Writing has been part of my work since 2021, from institutional journalism to editorial content on urban issues.</p>
+    <div class="writing">
+      <div class="wcard">
+        <div class="org">Young Urbanist of South East Asia (YUSEA) · 2025–2026</div>
+        <h3>Urban futures writer</h3>
+        <p>Writer for the editorial section on urban futures, including urban resilience and smart cities in Southeast Asia.</p>
+      </div>
+      <div class="wcard">
+        <div class="org">ITS Online · 2021–2023</div>
+        <h3>Reporter and editorial writer</h3>
+        <p>Hardnews, softnews, opinion, and editorial articles, several republished by national media, plus contributions to ITS magazines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Research</div>
+    <h2>Research and publications</h2>
+    <div class="timeline">
+      <div class="item">
+        <div class="when">2025</div>
+        <h3>Digital and Community-Driven Approaches to Sustainable Tourism: Innovations in Malang's Thematic Villages</h3>
+        <div class="org">Contributing author · 20th IRSA International Conference, Semarang</div>
+      </div>
+      <div class="item">
+        <div class="when">2024 – 2025</div>
+        <h3>Stakeholder's Role on Palm Oil Production Factor in Smallholder Plantation Using Network Dynamic Approach</h3>
+        <div class="org">Co-author · ITS · System Dynamics and Social Network Analysis; funded by BPDPKS (Badan Pengelola Dana Perkebunan Kelapa Sawit)</div>
+      </div>
+      <div class="item">
+        <div class="when">2024</div>
+        <h3>Undergraduate thesis: WP Formation Policy and Manufacturing Productivity in East Java</h3>
+        <div class="org">Balassa-Hoover and Herfindahl-Hirschman indices; stochastic production frontier (translog) in FRONTIER 4.1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recognition" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Recognition and training</div>
+    <h2>Awards, certificates, and training</h2>
+    <div class="two">
+      <div class="list">
+        <h3>Awards</h3>
+        <ul>
+          <li>Best Mentee, Certified Independent Study Program (SIB) Kampus Merdeka, Citiasia Inc. (2024)</li>
+          <li>1st Place, National Scientific Writing Competition (LKTIN), Pelita Fair, Tidar University (2021)</li>
+          <li>University Innovation Fellows, Hasso Plattner Institute of Design, Stanford University (2021)</li>
+          <li>1st Place, Geography, Regional Science Olympiad (OSK) at the Madiun Regency and City level, East Java Provincial Education Office (2019)</li>
+          <li>3rd Place, Khatulistiwa: Geography Championship, HIMAGO FKIP, Universitas Sebelas Maret (2019)</li>
+          <li>5th Place, Geography, 9th National Liga Olimpiade Pelajar, Club Olimpiade USU (2020)</li>
+        </ul>
+      </div>
+      <div class="list">
+        <h3>Certificates</h3>
+        <ul>
+          <li>Smart City Junior Associate (2024)</li>
+          <li>English: EFL 603 / 677, ITS Global Language Center</li>
+        </ul>
+        <h3>Training</h3>
+        <ul>
+          <li>Cloud Computing Technology for Smart City (2024)</li>
+          <li>ASEAN Data Science Explorers, SAP Analytics Cloud and SAP Build Apps (2024)</li>
+          <li>ArcGIS Basic-Advanced, LOGIS (2023)</li>
+          <li>RDTR Preparation Bootcamp, Ministry of Agrarian Affairs and Spatial Planning (2023)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+<svg class="deco" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true" focusable="false"><rect x="0" y="16" width="84" height="134" fill="#2C5F73"/><rect x="65" y="28" width="6" height="7" fill="#173B54"/><rect x="51" y="44" width="6" height="7" fill="#173B54"/><rect x="9" y="60" width="6" height="7" fill="#173B54"/><rect x="23" y="92" width="6" height="7" fill="#173B54"/><rect x="37" y="92" width="6" height="7" fill="#173B54"/><rect x="51" y="108" width="6" height="7" fill="#173B54"/><rect x="65" y="108" width="6" height="7" fill="#173B54"/><rect x="9" y="124" width="6" height="7" fill="#173B54"/><rect x="23" y="124" width="6" height="7" fill="#173B54"/><rect x="37" y="124" width="6" height="7" fill="#173B54"/><rect x="90" y="58" width="68" height="92" fill="#2C5F73"/><rect x="127" y="70" width="6" height="7" fill="#173B54"/><rect x="99" y="86" width="6" height="7" fill="#173B54"/><rect x="113" y="86" width="6" height="7" fill="#173B54"/><rect x="127" y="86" width="6" height="7" fill="#173B54"/><rect x="141" y="86" width="6" height="7" fill="#173B54"/><rect x="99" y="102" width="6" height="7" fill="#173B54"/><rect x="127" y="102" width="6" height="7" fill="#173B54"/><rect x="99" y="118" width="6" height="7" fill="#173B54"/><rect x="113" y="134" width="6" height="7" fill="#173B54"/><rect x="168" y="100" width="68" height="50" fill="#2C5F73"/><rect x="205" y="112" width="6" height="7" fill="#173B54"/><rect x="219" y="112" width="6" height="7" fill="#173B54"/><rect x="177" y="128" width="6" height="7" fill="#173B54"/><rect x="191" y="128" width="6" height="7" fill="#173B54"/><rect x="219" y="128" width="6" height="7" fill="#173B54"/><rect x="242" y="16" width="84" height="134" fill="#2C5F73"/><rect x="251" y="28" width="6" height="7" fill="#173B54"/><rect x="279" y="28" width="6" height="7" fill="#173B54"/><rect x="307" y="28" width="6" height="7" fill="#173B54"/><rect x="265" y="44" width="6" height="7" fill="#173B54"/><rect x="279" y="44" width="6" height="7" fill="#173B54"/><rect x="279" y="60" width="6" height="7" fill="#173B54"/><rect x="265" y="76" width="6" height="7" fill="#173B54"/><rect x="293" y="76" width="6" height="7" fill="#173B54"/><rect x="307" y="76" width="6" height="7" fill="#173B54"/><rect x="279" y="92" width="6" height="7" fill="#173B54"/><rect x="293" y="92" width="6" height="7" fill="#173B54"/><rect x="307" y="92" width="6" height="7" fill="#173B54"/><rect x="265" y="108" width="6" height="7" fill="#173B54"/><rect x="307" y="124" width="6" height="7" fill="#173B54"/><rect x="332" y="80" width="68" height="70" fill="#2C5F73"/><rect x="355" y="92" width="6" height="7" fill="#173B54"/><rect x="369" y="92" width="6" height="7" fill="#173B54"/><rect x="355" y="108" width="6" height="7" fill="#173B54"/><rect x="369" y="124" width="6" height="7" fill="#173B54"/><rect x="383" y="124" width="6" height="7" fill="#173B54"/><rect x="410" y="70" width="56" height="80" fill="#2C5F73"/><rect x="433" y="82" width="6" height="7" fill="#173B54"/><rect x="433" y="98" width="6" height="7" fill="#173B54"/><rect x="447" y="98" width="6" height="7" fill="#173B54"/><rect x="433" y="114" width="6" height="7" fill="#173B54"/><rect x="447" y="114" width="6" height="7" fill="#173B54"/><rect x="476" y="80" width="56" height="70" fill="#2C5F73"/><rect x="499" y="92" width="6" height="7" fill="#173B54"/><rect x="485" y="108" width="6" height="7" fill="#173B54"/><rect x="499" y="108" width="6" height="7" fill="#173B54"/><rect x="513" y="108" width="6" height="7" fill="#173B54"/><rect x="513" y="124" width="6" height="7" fill="#173B54"/><rect x="538" y="58" width="84" height="92" fill="#2C5F73"/><rect x="589" y="70" width="6" height="7" fill="#173B54"/><rect x="603" y="70" width="6" height="7" fill="#173B54"/><rect x="547" y="86" width="6" height="7" fill="#173B54"/><rect x="603" y="86" width="6" height="7" fill="#173B54"/><rect x="547" y="118" width="6" height="7" fill="#173B54"/><rect x="628" y="100" width="84" height="50" fill="#2C5F73"/><rect x="651" y="128" width="6" height="7" fill="#173B54"/><rect x="722" y="70" width="84" height="80" fill="#2C5F73"/><rect x="759" y="98" width="6" height="7" fill="#173B54"/><rect x="773" y="98" width="6" height="7" fill="#173B54"/><rect x="731" y="114" width="6" height="7" fill="#173B54"/><rect x="745" y="130" width="6" height="7" fill="#173B54"/><rect x="816" y="38" width="84" height="112" fill="#2C5F73"/><rect x="867" y="50" width="6" height="7" fill="#173B54"/><rect x="839" y="82" width="6" height="7" fill="#173B54"/><rect x="853" y="98" width="6" height="7" fill="#173B54"/><rect x="867" y="98" width="6" height="7" fill="#173B54"/><rect x="825" y="114" width="6" height="7" fill="#173B54"/><rect x="839" y="114" width="6" height="7" fill="#173B54"/><rect x="881" y="130" width="6" height="7" fill="#173B54"/><rect x="906" y="16" width="68" height="134" fill="#2C5F73"/><rect x="915" y="28" width="6" height="7" fill="#173B54"/><rect x="929" y="44" width="6" height="7" fill="#173B54"/><rect x="943" y="44" width="6" height="7" fill="#173B54"/><rect x="915" y="60" width="6" height="7" fill="#173B54"/><rect x="943" y="60" width="6" height="7" fill="#173B54"/><rect x="957" y="60" width="6" height="7" fill="#173B54"/><rect x="915" y="76" width="6" height="7" fill="#173B54"/><rect x="915" y="108" width="6" height="7" fill="#173B54"/><rect x="943" y="108" width="6" height="7" fill="#173B54"/><rect x="957" y="108" width="6" height="7" fill="#173B54"/><rect x="943" y="124" width="6" height="7" fill="#173B54"/><rect x="957" y="124" width="6" height="7" fill="#173B54"/><rect x="984" y="38" width="56" height="112" fill="#2C5F73"/><rect x="1021" y="50" width="6" height="7" fill="#173B54"/><rect x="1007" y="82" width="6" height="7" fill="#173B54"/><rect x="993" y="98" width="6" height="7" fill="#173B54"/><rect x="1021" y="130" width="6" height="7" fill="#173B54"/><rect x="1046" y="80" width="56" height="70" fill="#2C5F73"/><rect x="1108" y="38" width="44" height="112" fill="#2C5F73"/><rect x="1117" y="66" width="6" height="7" fill="#173B54"/><rect x="1117" y="82" width="6" height="7" fill="#173B54"/><rect x="1131" y="98" width="6" height="7" fill="#173B54"/><rect x="1162" y="16" width="84" height="134" fill="#2C5F73"/><rect x="1185" y="28" width="6" height="7" fill="#173B54"/><rect x="1199" y="28" width="6" height="7" fill="#173B54"/><rect x="1227" y="28" width="6" height="7" fill="#173B54"/><rect x="1227" y="60" width="6" height="7" fill="#173B54"/><rect x="1227" y="76" width="6" height="7" fill="#173B54"/><rect x="1213" y="92" width="6" height="7" fill="#173B54"/><rect x="1185" y="124" width="6" height="7" fill="#173B54"/><rect x="1256" y="80" width="68" height="70" fill="#2C5F73"/><rect x="1279" y="92" width="6" height="7" fill="#173B54"/><rect x="1307" y="108" width="6" height="7" fill="#173B54"/><rect x="1293" y="124" width="6" height="7" fill="#173B54"/><rect x="1330" y="80" width="44" height="70" fill="#2C5F73"/><rect x="1339" y="92" width="6" height="7" fill="#173B54"/><rect x="1353" y="92" width="6" height="7" fill="#173B54"/><rect x="1339" y="108" width="6" height="7" fill="#173B54"/><rect x="1339" y="124" width="6" height="7" fill="#173B54"/><rect x="1384" y="16" width="44" height="134" fill="#2C5F73"/><rect x="1393" y="60" width="6" height="7" fill="#173B54"/><rect x="1407" y="108" width="6" height="7" fill="#173B54"/><rect x="1393" y="124" width="6" height="7" fill="#173B54"/><rect x="1434" y="70" width="56" height="80" fill="#2C5F73"/><rect x="1471" y="82" width="6" height="7" fill="#173B54"/><rect x="1471" y="98" width="6" height="7" fill="#173B54"/><rect x="1457" y="114" width="6" height="7" fill="#173B54"/><rect x="1471" y="114" width="6" height="7" fill="#173B54"/><rect x="1457" y="130" width="6" height="7" fill="#173B54"/><rect x="1471" y="130" width="6" height="7" fill="#173B54"/><rect x="68" y="116" width="4" height="34" fill="#2C5F73"/><circle cx="70" cy="106" r="20" fill="#2C5F73"/><rect x="298" y="116" width="4" height="34" fill="#2C5F73"/><circle cx="300" cy="106" r="20" fill="#2C5F73"/><rect x="638" y="116" width="4" height="34" fill="#2C5F73"/><circle cx="640" cy="106" r="20" fill="#2C5F73"/><rect x="978" y="116" width="4" height="34" fill="#2C5F73"/><circle cx="980" cy="106" r="20" fill="#2C5F73"/><rect x="1208" y="116" width="4" height="34" fill="#2C5F73"/><circle cx="1210" cy="106" r="20" fill="#2C5F73"/><rect x="1398" y="116" width="4" height="34" fill="#2C5F73"/><circle cx="1400" cy="106" r="20" fill="#2C5F73"/></svg>
+  <div class="wrap">
+    <h2>Let's work on the next city plan.</h2>
+    <p>Open to planning, smart city, and GIS roles across Indonesia.</p>
+    <p><a href="mailto:ferdi.planning24@gmail.com">ferdi.planning24@gmail.com</a> · +62 85182526992 · <a href="https://www.linkedin.com/in/ferdianwibowo/">LinkedIn</a></p>
+    <p style="margin-top:22px;font-size:13px;color:#8FB5AD">© Ferdian Wibowo</p>
+  </div>
+</footer>
+
+</body>
+</html>
